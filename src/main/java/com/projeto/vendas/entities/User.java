@@ -1,4 +1,4 @@
-package entities;
+package com.projeto.vendas.entities;
 
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
