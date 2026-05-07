@@ -1,4 +1,7 @@
 package com.projeto.vendas.repositorys;
 
-public class OrderRepository {
+import com.projeto.vendas.entities.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OrderRepository extends JpaRepository<Order, Long> {
 }
