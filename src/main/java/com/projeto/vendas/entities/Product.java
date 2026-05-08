@@ -14,8 +14,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Entity
-@Table(name="tb_category")
-public class Category implements Serializable {
+@Table(name = "tb_product")
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,20 +23,29 @@ public class Category implements Serializable {
     private Long id;
     @Setter
     private String name;
+    @Setter
+    private String description;
+    @Setter
+    private Double price;
+    @Setter
+    private String imgUrl;
 
     @Transient
-    private Set<Product> products = new HashSet<>();
+    private Set<Category> categories = new HashSet<>();
 
-    public Category(Long id, String name) {
+    public Product(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
         this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imgUrl = imgUrl;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Category category = (Category) o;
-        return Objects.equals(id, category.id);
+        Product product = (Product) o;
+        return Objects.equals(id, product.id);
     }
 
     @Override
