@@ -10,7 +10,9 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @NoArgsConstructor
 
@@ -36,6 +38,10 @@ public class Order implements Serializable {
     @Setter
     @Getter
     private User client;
+
+    @OneToMany(mappedBy = "id.order")
+    @Getter
+    private Set<OrderItem> items = new HashSet<>();
 
     public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
         this.id = id;
