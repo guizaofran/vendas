@@ -43,6 +43,11 @@ public class Order implements Serializable {
     @Getter
     private Set<OrderItem> items = new HashSet<>();
 
+    @Getter
+    @Setter
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
+
     public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
         this.id = id;
         this.moment = moment;
